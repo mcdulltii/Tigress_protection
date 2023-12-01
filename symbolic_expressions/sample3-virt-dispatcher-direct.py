@@ -3497,4 +3497,4 @@ sys.stdout.write("%2.2x" %(ref_1212077))
 sys.stdout.write("%2.2x" %(ref_1212067))
 sys.stdout.write("%2.2x" %(ref_1212053))
 sys.stdout.write("%2.2x" %(ref_1212075))
-print
+print()

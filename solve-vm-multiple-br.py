@@ -47,7 +47,7 @@ CONCRETIZE = 1
 def debug(s):
     if DEBUG:
         sys.stdout.flush()
-        print '%s %s\033[0m' %(threading.currentThread().getName(), s)
+        print('%s %s\033[0m' %(threading.currentThread().getName(), s))
     return
 
 
@@ -314,7 +314,7 @@ class Trace(object):
         base   = self.ctx.getConcreteRegisterValue(self.ctx.registers.rdx)
 
         # Return value
-        return (CONCRETIZE, long(nptr, base))
+        return (CONCRETIZE, int(nptr, base))
 
 
     # Simulate the strlen() function
@@ -573,7 +573,7 @@ class Trace(object):
                 'src':              None,
                 'dst':              None,
             })
-            for k,v in model.items():
+            for k,v in list(model.items()):
                 # Get the symbolic variable assigned to the model
                 symVar = self.ctx.getSymbolicVariable(k)
                 # Save the new input as seed.
@@ -944,7 +944,7 @@ class PathsExploration(object):
                             for model in models:
                                 #model = trace.ctx.getModel(cstrts)
                                 seed   = list()
-                                for k, v in model.items():
+                                for k, v in list(model.items()):
                                     # Get the symbolic variable assigned to the model
                                     symVar = trace.ctx.getSymbolicVariable(k)
                                     # Save the new input as seed.
@@ -1041,7 +1041,7 @@ def exploreBinary(path, strategy):
     ts = time.clock()
 
     if not os.path.exists(path):
-        print "[-] Path does not exists"
+        print("[-] Path does not exists")
         sys.exit(-1)
 
     binary = PathsExploration(path)
@@ -1072,7 +1072,7 @@ def convertStrategy(args):
     elif args.strategy == 'rand':
         strategy = PathsExploration.STRATEGY_RAND
     else:
-        print '[+] Invalid strategy'
+        print('[+] Invalid strategy')
         sys.exit(-1)
 
     return strategy

@@ -29,7 +29,7 @@ METRICS = True
 
 # The debug function
 def debug(s):
-    if DEBUG: print s
+    if DEBUG: print(s)
 
 # VMs input
 VM_INPUT = '1234'
@@ -241,7 +241,7 @@ def strtoulHandler(ctx):
     base   = ctx.getConcreteRegisterValue(ctx.registers.rdx)
 
     # Return value
-    return long(nptr, base)
+    return int(nptr, base)
 
 
 # Simulate the printf() function
@@ -555,12 +555,15 @@ def run(ctx, binary):
 def metrics():
     global METRICS
     if METRICS:
-        print '--------------------------------------------------------------------'
-        print '->', sys.argv[1].split('/')[-1]
-        print '\tInstructions executed:', totalInstructions
-        print '\tUnique Instructions executed:', len(totalUniqueInstructions)
-        print '\tFunctions simulated:', totalFunctions
-        print '\tTime of analysis:', endTime - startTime, "seconds"
+        try:
+            print('--------------------------------------------------------------------')
+            print(f'-> {sys.argv[1].split("/")[-1]}')
+            print(f'\tInstructions executed: {totalInstructions}')
+            print(f'\tUnique Instructions executed: {len(totalUniqueInstructions)}')
+            print(f'\tFunctions simulated: {totalFunctions}')
+            print(f'\tTime of analysis: {endTime - startTime} seconds')
+        except:
+            return
     return
 
 
@@ -719,9 +722,9 @@ def main():
 
 
 if __name__ == '__main__':
-    startTime = time.clock()
+    startTime = time.time()
     retValue  = main()
-    endTime   = time.clock()
+    endTime   = time.time()
 
     metrics()
     sys.exit(retValue)

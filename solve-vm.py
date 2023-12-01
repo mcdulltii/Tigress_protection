@@ -598,12 +598,15 @@ def run(ctx, binary):
 def metrics():
     global METRICS
     if METRICS:
-        print('--------------------------------------------------------------------')
-        print('->', sys.argv[1].split('/')[-1])
-        print('   Instructions executed:', totalInstructions)
-        print('   Unique Instructions executed:', len(totalUniqueInstructions))
-        print('   Functions simulated:', totalFunctions)
-        print('   Time of analysis:', endTime - startTime, "seconds")
+        try:
+            print('--------------------------------------------------------------------')
+            print(f'-> {sys.argv[1].split("/")[-1]}')
+            print(f'   Instructions executed: {totalInstructions}')
+            print(f'   Unique Instructions executed: {len(totalUniqueInstructions)}')
+            print(f'   Functions simulated: {totalFunctions}')
+            print(f'   Time of analysis: {endTime - startTime} seconds')
+        except:
+            return
     return
 
 

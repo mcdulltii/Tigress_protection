@@ -23,7 +23,7 @@ for origin in binaries:
     bad     = False
 
     if not os.path.exists(triton):
-        print '[+] Not found \t : %s' %(triton)
+        print('[+] Not found \t : %s' %(triton))
         continue
 
     for x in range(1000):
@@ -59,8 +59,8 @@ for origin in binaries:
             break
 
     if bad:
-        print '[-] Invalid \t : %s' %(triton)
+        print('[-] Invalid \t : %s' %(triton))
     else:
-        print '[+] Valid \t : %s' %(triton)
+        print('[+] Valid \t : %s' %(triton))
 
 

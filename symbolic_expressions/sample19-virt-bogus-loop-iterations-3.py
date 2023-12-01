@@ -287,4 +287,4 @@ ref_2308621 = ref_2305255 # MOV operation
 ref_2315346 = ref_2308621 # MOV operation
 ref_2315348 = ref_2315346 # MOV operation
 
-print ref_2315348 & 0xffffffffffffffff
+print(ref_2315348 & 0xffffffffffffffff)

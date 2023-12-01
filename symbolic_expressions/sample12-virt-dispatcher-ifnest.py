@@ -68,4 +68,4 @@ ref_7188 = (ref_7154 & 0xFFFFFFFF) # MOV operation
 ref_7200 = ref_7188 # MOV operation
 ref_7202 = ref_7200 # MOV operation
 
-print ref_7202 & 0xffffffffffffffff
+print(ref_7202 & 0xffffffffffffffff)

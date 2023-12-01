@@ -147,4 +147,4 @@ ref_389439 = ref_389401 # MOV operation
 ref_389451 = ref_389439 # MOV operation
 ref_389453 = ref_389451 # MOV operation
 
-print ref_389453 & 0xffffffffffffffff
+print(ref_389453 & 0xffffffffffffffff)
